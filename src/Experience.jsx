@@ -36,7 +36,7 @@ export default function Experience()
         mieCoefficient: {value: 0.01, step: 0.1}
     })
     const {orbitCamera} = useControls('Camera',{
-        orbitCamera: true
+        orbitCamera: false
     })
 
     /**
@@ -68,7 +68,7 @@ export default function Experience()
     return <>
 
         {/* Debugging */}
-        <Perf position="top-left" />
+        {/* <Perf position="top-left" /> */}
 
         {/* Camera */}
         { orbitCamera && <OrbitControls makeDefault /> }

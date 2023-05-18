@@ -21,11 +21,11 @@ root.render(
     
     <Suspense fallback={null}>
      <App>
-      <StrictMode>
+      
       <Canvas>
       <Experience />
       </Canvas>
-      </StrictMode>
+      
     </App>
     </Suspense>
 

@@ -2,7 +2,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { ScrollControls, useScroll } from "@react-three/drei";
 import Experience from "/Experience.jsx"
 import Camera from "./components/camera.jsx";
-import flyThroughState from "./fly1-state.json"
+import flyThroughState from "./fly2-state.json"
 import { useControls } from 'leva'
 import { getProject, val } from "@theatre/core";
 import {
@@ -16,7 +16,7 @@ export default function App() {
      * Debug pannel
      */
     const {PerspectiveCamera} = useControls('Camera',{
-      PerspectiveCamera: false
+      PerspectiveCamera: true
   })
 
     const sheet = getProject("Fly Through", {state: flyThroughState}).sheet("Scene");
