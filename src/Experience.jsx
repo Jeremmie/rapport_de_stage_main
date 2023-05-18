@@ -1,4 +1,4 @@
-import { shaderMaterial, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, OrbitControls, Cloud, Html, Box, EnvironmentMap, Sphere } from '@react-three/drei'
+import { shaderMaterial, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, OrbitControls, Cloud, Html, Box, Sphere } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
 import { useDebugValue, useRef, useState } from 'react'
@@ -53,9 +53,8 @@ export default function Experience()
         mieCoefficient: {value: 0.01, step: 0.1}
     })
 
-    const cubeMap = useTexture('./cubemap/gradient.png')
     const { nodes } = useGLTF('./model/tower_v2.glb')
-    console.log(nodes)
+    
 
     const bakedTexture = useTexture('./model/tower_material.jpg')
     bakedTexture.flipY = false
@@ -66,10 +65,10 @@ export default function Experience()
     const [hidden, set] = useState()
     
     
-    useFrame((state, delta) =>
+    /* useFrame((state, delta) =>
     {
         portalMaterial.current.uTime += delta
-    })
+    }) */
 
     return <>
         <Stars attach={'background'} />
@@ -156,14 +155,14 @@ export default function Experience()
             />
 
             {/* <Sky distance={50} rayleigh={0.03} sunPosition={[0, 1, 0]} turbidity={1} inclination={0} azimuth={0.5} /> */}
-            <Cloud
+            {/* <Cloud
                 position={[5, 0, 0]}
                 opacity={0.3}
                 speed={0.05} // Rotation speed
                 width={20} // Width of the full cloud
                 depth={1.5} // Z-dir depth
                 segments={10} // Number of particles
-/>
+/> */}
         
         </Center>
 
