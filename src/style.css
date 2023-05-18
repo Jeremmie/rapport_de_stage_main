@@ -21,6 +21,7 @@ body,
 
 .one {
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,12 +30,7 @@ body,
     scroll-snap-type: y mandatory; /* Ajoutez cette ligne */
 }
 
-.container {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-    width: 100vw;
-}
+
 
 .label > div
 {

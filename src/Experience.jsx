@@ -1,13 +1,12 @@
-import { shaderMaterial, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud, Html, Sphere, OrbitControls } from '@react-three/drei'
+import { shaderMaterial, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
-import { useDebugValue, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import portalVertexShader from './shaders/portal/vertex.glsl'
 import portalFragmentShader from './shaders/portal/fragment.glsl'
 import Swimming from "./components/swimming.jsx"
 import Computer_man from './components/computer_man.jsx'
-import Camera from './components/camera.jsx'
-import { useControls } from 'leva'
+import { Leva, useControls } from 'leva'
 import { Perf } from 'r3f-perf'
 
 const PortalMaterial = shaderMaterial(
@@ -66,18 +65,18 @@ export default function Experience()
     })
 
     return <>
-        <Stars />
+        
         {/* Debugging */}
-        <Perf position="top-left" />
-
+        {/* <Perf position="top-left" /> */}
+        <Leva hidden />
+        
         {/* Camera */}
         {/* { orbitCamera && <OrbitControls makeDefault /> } */}
-        <Camera makeDefault></Camera>
+        
 
         {/* Environnement */}
         <Sky sunPosition={sunPosition} turbidity={turbidity} mieCoefficient={mieCoefficient} />
-        
-        
+        <Stars />
         <Cloud
                 position={[5, 0, 0]}
                 opacity={0.4}
