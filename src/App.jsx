@@ -1,10 +1,9 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Gltf, Sky, ScrollControls, useScroll } from "@react-three/drei";
-import { getProject, val } from "@theatre/core";
 import Experience from "/Experience.jsx"
 import flyThroughState from "./fly1-state.json"
 
-
+import { getProject, val } from "@theatre/core";
 import {
   SheetProvider,
   PerspectiveCamera,
@@ -44,14 +43,14 @@ function Scene() {
   return (
     <>
       <Experience></Experience>
-      <PerspectiveCamera
+      {/* <PerspectiveCamera
         theatreKey="Camera"
         makeDefault
         position={[0, 0, 0]}
         fov={60}
         near={0.1}
         far={70}
-      />
+      /> */}
     </>
   );
 }

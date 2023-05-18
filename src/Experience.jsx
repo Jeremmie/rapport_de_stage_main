@@ -65,10 +65,10 @@ export default function Experience()
     const [hidden, set] = useState()
     
     
-    /* useFrame((state, delta) =>
+    useFrame((state, delta) =>
     {
         portalMaterial.current.uTime += delta
-    }) */
+    })
 
     return <>
         <Stars attach={'background'} />
@@ -84,7 +84,7 @@ export default function Experience()
 
         <Center>
             
-            <mesh geometry={ nodes.tower.geometry }  >
+            <mesh geometry={ nodes.tower.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
             </mesh>
 
