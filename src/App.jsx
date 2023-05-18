@@ -1,25 +1,33 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Gltf, Sky, ScrollControls, useScroll } from "@react-three/drei";
+import { ScrollControls, useScroll } from "@react-three/drei";
 import Experience from "/Experience.jsx"
+import Camera from "./components/camera.jsx";
 import flyThroughState from "./fly1-state.json"
-
+import { useControls } from 'leva'
 import { getProject, val } from "@theatre/core";
 import {
   SheetProvider,
-  PerspectiveCamera,
   useCurrentSheet,
 } from "@theatre/r3f";
 
 
 export default function App() {
+    /**
+     * Debug pannel
+     */
+    const {PerspectiveCamera} = useControls('Camera',{
+      PerspectiveCamera: false
+  })
+
     const sheet = getProject("Fly Through", {state: flyThroughState}).sheet("Scene");
 
   return (
     <Canvas gl={{ preserveDrawingBuffer: true }} flat>
-      
+      <Experience></Experience>
       <ScrollControls pages={5}>
         <SheetProvider sheet={sheet}>
           <Scene />
+          { PerspectiveCamera && <Camera /> }
         </SheetProvider>
       </ScrollControls>
     </Canvas>
@@ -29,7 +37,6 @@ export default function App() {
 function Scene() {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
-
   // our callback will run on every animation frame
   useFrame(() => {
     // the length of our sequence
@@ -38,19 +45,4 @@ function Scene() {
     sheet.sequence.position = scroll.offset * sequenceLength;
   });
 
-  const bgColor = "#D489F3";
-
-  return (
-    <>
-      <Experience></Experience>
-      {/* <PerspectiveCamera
-        theatreKey="Camera"
-        makeDefault
-        position={[0, 0, 0]}
-        fov={60}
-        near={0.1}
-        far={70}
-      /> */}
-    </>
-  );
 }

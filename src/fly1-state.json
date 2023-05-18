@@ -34,7 +34,7 @@
                       0
                     ],
                     "type": "bezier",
-                    "value": -6.181434158750774
+                    "value": -5.840360918632327
                   },
                   {
                     "id": "gV2zRuvq0C",
@@ -150,7 +150,7 @@
                       0
                     ],
                     "type": "bezier",
-                    "value": -2.5532824246635704
+                    "value": -2.5295950457704905
                   },
                   {
                     "id": "2N5Bwr24ww",
@@ -383,6 +383,7 @@
   },
   "definitionVersion": "0.4.0",
   "revisionHistory": [
+    "CdNO6hAumRKdwIat",
     "rgYNComAJ54Wii9y",
     "KAsQb3z6F8LeoIKF",
     "XmYjHkpi2dEUfOmE",

@@ -28,10 +28,7 @@ root.render(
       </StrictMode>
     </App>
     </Suspense>
-    
-    
-    
-   
+
     </>
 
     
