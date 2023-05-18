@@ -13,7 +13,7 @@ import { Perf } from 'r3f-perf'
 const PortalMaterial = shaderMaterial(
     {
         uTime: 0,
-        uColorStart: new THREE.Color('#FFFBDB'),
+        uColorStart: new THREE.Color('#FFFFFF'),
         uColorEnd: new THREE.Color('#555555') 
     },
     portalVertexShader,
@@ -38,7 +38,7 @@ export default function Experience()
     const {orbitCamera} = useControls('Camera',{
         orbitCamera: false
     })
-
+    
     /**
      * model
      */
@@ -66,12 +66,13 @@ export default function Experience()
     })
 
     return <>
-
+        <Stars />
         {/* Debugging */}
-        {/* <Perf position="top-left" /> */}
+        <Perf position="top-left" />
 
         {/* Camera */}
-        { orbitCamera && <OrbitControls makeDefault /> }
+        {/* { orbitCamera && <OrbitControls makeDefault /> } */}
+        <Camera makeDefault></Camera>
 
         {/* Environnement */}
         <Sky sunPosition={sunPosition} turbidity={turbidity} mieCoefficient={mieCoefficient} />
@@ -85,7 +86,7 @@ export default function Experience()
                 depth={1.5} // Z-dir depth
                 segments={10} // Number of particles
         />
-        <Stars  />
+        
 
         {/* Light */}
         <ambientLight intensity={1} />

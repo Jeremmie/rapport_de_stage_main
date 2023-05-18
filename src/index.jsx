@@ -2,7 +2,6 @@ import './style.css'
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
-import App from "/App.jsx";
 
 /* Tuto theatre part */
 import studio from "@theatre/studio";
@@ -20,13 +19,13 @@ root.render(
     <>
     
     <Suspense fallback={null}>
-     <App>
+    
       
       <Canvas>
       <Experience />
       </Canvas>
       
-    </App>
+    
     </Suspense>
 
     </>
