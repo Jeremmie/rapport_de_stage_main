@@ -6,6 +6,7 @@ import portalVertexShader from './shaders/portal/vertex.glsl'
 import portalFragmentShader from './shaders/portal/fragment.glsl'
 import Swimming from "./components/swimming.jsx"
 import Computer_man from './components/computer_man.jsx'
+import Camera from './components/camera.jsx'
 import { useControls } from 'leva'
 import { Perf } from 'r3f-perf'
 
@@ -75,16 +76,17 @@ export default function Experience()
         {/* Environnement */}
         <Sky sunPosition={sunPosition} turbidity={turbidity} mieCoefficient={mieCoefficient} />
         
-        <Stars  />
+        
         <Cloud
                 position={[5, 0, 0]}
-                opacity={0.3}
+                opacity={0.4}
                 speed={0.05} // Rotation speed
                 width={20} // Width of the full cloud
                 depth={1.5} // Z-dir depth
                 segments={10} // Number of particles
         />
-        
+        <Stars  />
+
         {/* Light */}
         <ambientLight intensity={1} />
 
