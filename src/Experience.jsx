@@ -1,4 +1,4 @@
-import { shaderMaterial, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud } from '@react-three/drei'
+import { shaderMaterial, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
 import { useRef, useState } from 'react'
@@ -37,11 +37,14 @@ export default function Experience()
     const {orbitCamera} = useControls('Camera',{
         orbitCamera: false
     })
+
+
     
     /**
      * model
      */
     const { nodes } = useGLTF('./model/tower_v2.glb')
+    const dunk = useGLTF('./model/dunk.gltf')
 
     /**
      * Textures
@@ -68,10 +71,10 @@ export default function Experience()
         
         {/* Debugging */}
         {/* <Perf position="top-left" /> */}
-        <Leva hidden />
+        
         
         {/* Camera */}
-        {/* { orbitCamera && <OrbitControls makeDefault /> } */}
+        { orbitCamera && <OrbitControls makeDefault /> }
         
 
         {/* Environnement */}
@@ -94,6 +97,24 @@ export default function Experience()
             <mesh geometry={ nodes.tower.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
             </mesh>
+
+            <mesh geometry={dunk.nodes.perso.geometry} position={[8, -4, 5]} rotation={[0, -0.2, 0]}>
+                <meshBasicMaterial color={'#A690A4'} />
+            </mesh>
+
+            <mesh geometry={dunk.nodes.filet_peche.geometry} position={[8, -4, 5]} rotation={[0, -0.2, 0]}>
+                <meshBasicMaterial color={'#A690A4'} />
+            </mesh>
+
+            <Sparkles
+		        size={ 10 }
+                scale={0.4}
+                position={[7.7, -1.7, 6]}
+                speed={ 2 }
+                count={ 20 }
+                color={'#F2E94E'}
+                noise={1}
+            />
 
             <mesh geometry={ nodes.terrain.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
