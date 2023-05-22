@@ -43,7 +43,7 @@ export default function Experience()
     /**
      * model
      */
-    const tower = useGLTF('./model/tower_v2.glb')
+    const tower = useGLTF('./model/tower_v3.glb')
     const dunk = useGLTF('./model/dunk.gltf')
     const robotAll = useGLTF('./model/robot_all.glb')
 
@@ -81,17 +81,23 @@ export default function Experience()
     const placeHolder = useRef()
     const [hidden, set] = useState()
 
-    console.log(tower.nodes.terrain)
     
     /**
      * portal material
      */
     const portalMaterial = useRef()
-    const towerMaterial = useRef()
+    const rockMaterial = useRef()
+    const rock1Material = useRef()
+    const [angle, setAngle] = useState(0);
     useFrame((state, delta) =>
-    {
-        portalMaterial.current.uTime += delta
-        /* towerMaterial.current.rotation.y += delta */
+    {   
+        setAngle((prevAngle) => prevAngle + delta * 0.5);
+
+        portalMaterial.current.uTime += delta;
+        rockMaterial.current.position.y = -(Math.cos(angle)) * 1;
+        rock1Material.current.position.y = Math.sin(angle) * 1.3;
+        rockMaterial.current.rotation.y += delta / 5
+        rock1Material.current.rotation.y -= delta / 9
     })
 
     return <>
@@ -187,7 +193,13 @@ export default function Experience()
             </group>
             
 
-            <mesh ref={towerMaterial} geometry={ tower.nodes.terrain.geometry } >
+            <mesh geometry={ tower.nodes.terrain.geometry } >
+                <meshBasicMaterial map={ bakedTexture } />
+            </mesh>
+            <mesh ref={rockMaterial} geometry={ tower.nodes.rock.geometry } >
+                <meshBasicMaterial map={ bakedTexture } />
+            </mesh>
+            <mesh ref={rock1Material} position={[0, 3, 0]} geometry={ tower.nodes.rock1.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
             </mesh>
 
