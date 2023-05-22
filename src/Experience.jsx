@@ -1,12 +1,10 @@
-import { shaderMaterial, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud, OrbitControls } from '@react-three/drei'
+import { shaderMaterial, Html, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud, OrbitControls, Sphere } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
 import { useRef, useState } from 'react'
 import portalVertexShader from './shaders/portal/vertex.glsl'
 import portalFragmentShader from './shaders/portal/fragment.glsl'
-import Swimming from "./components/swimming.jsx"
-import Computer_man from './components/computer_man.jsx'
-import { Leva, useControls } from 'leva'
+import { useControls } from 'leva'
 import { Perf } from 'r3f-perf'
 
 const PortalMaterial = shaderMaterial(
@@ -37,40 +35,69 @@ export default function Experience()
     const {orbitCamera} = useControls('Camera',{
         orbitCamera: false
     })
-
+    const {position} = useControls('Sparkles',{
+        position: { value: [ 88, -41, 11 ], step: 1 },
+    })
 
     
     /**
      * model
      */
-    const { nodes } = useGLTF('./model/tower_v2.glb')
+    const tower = useGLTF('./model/tower_v2.glb')
     const dunk = useGLTF('./model/dunk.gltf')
+    const robotAll = useGLTF('./model/robot_all.glb')
 
     /**
      * Textures
      */
     const bakedTexture = useTexture('./model/tower_material.jpg')
+    const dunkTexture = useTexture('./model/dunk_base_color.png')
+
+    const bodytexture = useTexture('./model/robot/body.jpg')
+    const bouteilleTexture = useTexture('./model/robot/bouteille.png')
+    const feetTexture = useTexture('./model/robot/feet.png')
+    const metalMilieu = useTexture('./model/robot/metal_milieu.png')
+    const metalTexture = useTexture('./model/robot/metal.png')
+    const naturetexture = useTexture('./model/robot/nature.png')
+    const terrainTexture = useTexture('./model/robot/terrain.png')
+    const tuyauTexture = useTexture('./model/robot/tuyau.png')
+    const vitreTexture = useTexture('./model/robot/vitre.png')
+    bodytexture.flipY = false
+    bouteilleTexture.flipY = false
+    feetTexture.flipY = false
+    metalMilieu.flipY = false
+    metalTexture.flipY = false
+    naturetexture.flipY = false
+    terrainTexture.flipY = false
+    tuyauTexture.flipY = false
+    vitreTexture.flipY = false
+
     bakedTexture.flipY = false
+    dunkTexture.flipY = false
 
     /**
      * PlaceHolder (hide Html element when camera goes far)
      */
     const placeHolder = useRef()
     const [hidden, set] = useState()
+
+    console.log(tower.nodes.terrain)
     
     /**
      * portal material
      */
     const portalMaterial = useRef()
+    const towerMaterial = useRef()
     useFrame((state, delta) =>
     {
         portalMaterial.current.uTime += delta
+        /* towerMaterial.current.rotation.y += delta */
     })
 
     return <>
         
         {/* Debugging */}
-        {/* <Perf position="top-left" /> */}
+        <Perf position="top-left" />
         
         
         {/* Camera */}
@@ -93,40 +120,83 @@ export default function Experience()
         {/* Light */}
         <ambientLight intensity={1} />
 
-        <Center>
-            <mesh geometry={ nodes.tower.geometry } >
+        {/* <Center> */}
+            <mesh geometry={ tower.nodes.tower.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
             </mesh>
 
-            <mesh geometry={dunk.nodes.perso.geometry} position={[8, -4, 5]} rotation={[0, -0.2, 0]}>
-                <meshBasicMaterial color={'#A690A4'} />
+            <mesh geometry={dunk.nodes.perso.geometry} position={[46, -12.5, 9]} rotation={[0.4, -0.45, 0]}>
+                <meshBasicMaterial map={dunkTexture} />
             </mesh>
-
-            <mesh geometry={dunk.nodes.filet_peche.geometry} position={[8, -4, 5]} rotation={[0, -0.2, 0]}>
-                <meshBasicMaterial color={'#A690A4'} />
+            <mesh geometry={dunk.nodes.filet_peche.geometry} position={[46, -12.5, 9]} rotation={[0.4, -0.45, 0]}>
+                <meshBasicMaterial map={dunkTexture} />
             </mesh>
-
             <Sparkles
 		        size={ 10 }
                 scale={0.4}
-                position={[7.7, -1.7, 6]}
+                position={[ 45.5, -10.5, 10.9 ]}
                 speed={ 2 }
                 count={ 20 }
-                color={'#F2E94E'}
+                color={'#FFE53B'}
                 noise={1}
             />
 
-            <mesh geometry={ nodes.terrain.geometry } >
+            <group position={position}>
+            <Sphere ref={placeHolder} material scale={8} />
+            <mesh geometry={robotAll.nodes.body.geometry}>
+                <meshBasicMaterial map={bodytexture} />
+                <Html
+                position={[0.5, 1, 0]}
+                 wrapperClass="label"
+                 center
+                 distanceFactor={ 3 }
+                 occlude={[placeHolder]}
+                 onOcclude={set}
+                    style={{
+                    transition: 'all 0.5s',
+                    opacity: hidden ? 0 : 1,
+                    transform: `scale(${hidden ? 0.5 : 1})`
+                }}>
+                    <h1>Coucou</h1>
+                </Html>
+            </mesh>
+            <mesh geometry={robotAll.nodes.metal.geometry}>
+                <meshBasicMaterial map={metalTexture} />
+            </mesh>
+            <mesh geometry={robotAll.nodes.bouteille.geometry}>
+                <meshBasicMaterial map={bouteilleTexture} />
+            </mesh>
+            <mesh geometry={robotAll.nodes.feet.geometry}>
+                <meshBasicMaterial map={feetTexture} />
+            </mesh>
+            <mesh geometry={robotAll.nodes.metal_milieu.geometry}>
+                <meshBasicMaterial map={metalMilieu} />
+            </mesh>
+            <mesh geometry={robotAll.nodes.nature.geometry}>
+                <meshBasicMaterial map={naturetexture} />
+            </mesh>
+            <mesh geometry={robotAll.nodes.sol.geometry}>
+                <meshBasicMaterial map={terrainTexture} />
+            </mesh>
+            <mesh geometry={robotAll.nodes.tuyau.geometry}>
+                <meshBasicMaterial map={tuyauTexture} />
+            </mesh>
+            <mesh geometry={robotAll.nodes.vitre.geometry}>
+                <meshBasicMaterial map={vitreTexture} />
+            </mesh>
+            </group>
+            
+
+            <mesh ref={towerMaterial} geometry={ tower.nodes.terrain.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
             </mesh>
 
-            <mesh geometry={ nodes.porte.geometry } >
+            <mesh geometry={ tower.nodes.porte.geometry } >
                 <portalMaterial ref={ portalMaterial } />
             </mesh>
 
-            <Swimming></Swimming>
-            <Computer_man></Computer_man>
-        </Center>
+            
+        {/* </Center> */}
 
     </>
 }
