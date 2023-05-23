@@ -57,7 +57,7 @@ export default function Robot(){
                 </Html>
             </mesh>
 
-            <mesh material ref={placeHolder} scale={10}>
+            <mesh material position={[-1, 0, 3]} ref={placeHolder} scale={5}>
                 <sphereGeometry />
             </mesh>
 

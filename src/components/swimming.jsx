@@ -12,6 +12,7 @@ export default function Swimming(props) {
 
   useEffect(() => {
     const action = animations.actions.swimming
+    
     action.play()
     }, [])
 
@@ -40,7 +41,6 @@ export default function Swimming(props) {
             animations={nodes.animations}
             
           />
-
                 <Html
                  position={[0.1, 0.1, 0]}
                  wrapperClass="label"
