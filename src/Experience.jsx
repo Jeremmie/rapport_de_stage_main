@@ -32,6 +32,9 @@ export default function Experience()
         turbidity:{value: 0.1, step: 0.1},
         mieCoefficient: {value: 0.01, step: 0.1}
     })
+    const {performance} = useControls('Perfs',{
+        performance: false
+    })
     const {orbitCamera} = useControls('Camera',{
         orbitCamera: false
     })
@@ -88,22 +91,23 @@ export default function Experience()
     const portalMaterial = useRef()
     const rockMaterial = useRef()
     const rock1Material = useRef()
-    const [angle, setAngle] = useState(0);
+    const [angle, setAngle] = useState(0)
     useFrame((state, delta) =>
     {   
-        setAngle((prevAngle) => prevAngle + delta * 0.5);
+        setAngle((prevAngle) => prevAngle + delta * 0.2);
 
         portalMaterial.current.uTime += delta;
-        rockMaterial.current.position.y = -(Math.cos(angle)) * 1;
-        rock1Material.current.position.y = Math.sin(angle) * 1.3;
-        rockMaterial.current.rotation.y += delta / 5
-        rock1Material.current.rotation.y -= delta / 9
+        rockMaterial.current.position.y = -(Math.cos(angle)) * 0.7
+        rock1Material.current.position.y = Math.sin(angle) * 0.9
+        rockMaterial.current.rotation.y = -(Math.cos(angle)) * 0.2
+        rock1Material.current.rotation.y = Math.sin(angle) * 0.2
     })
 
     return <>
         
         {/* Debugging */}
-        <Perf position="top-left" />
+        
+        {performance && <Perf position='top-left' />}
         
         
         {/* Camera */}
@@ -127,10 +131,27 @@ export default function Experience()
         <ambientLight intensity={1} />
 
         {/* <Center> */}
+            <Sphere ref={[placeHolder]} material scale={20}/>
             <mesh geometry={ tower.nodes.tower.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
+                <Html
+                position={[0, 5, -3]}
+                wrapperClass='label'
+                center
+                
+                occlude={placeHolder}
+                onOcclude={set}
+                    style={{
+                    transition: 'all 0.5s',
+                    opacity: hidden ? 0 : 1,
+                    transform: `scale(${hidden ? 0.5 : 1})`
+                }}
+                >
+                    <h1>Yeahboy</h1>
+                </Html>
             </mesh>
-
+            
+            
             <mesh geometry={dunk.nodes.perso.geometry} position={[46, -12.5, 9]} rotation={[0.4, -0.45, 0]}>
                 <meshBasicMaterial map={dunkTexture} />
             </mesh>
