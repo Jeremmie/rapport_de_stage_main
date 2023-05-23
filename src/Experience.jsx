@@ -1,4 +1,4 @@
-import { shaderMaterial, Html, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud, OrbitControls, Sphere } from '@react-three/drei'
+import { shaderMaterial, Html, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud, OrbitControls, Sphere, Box, CameraShake } from '@react-three/drei'
 import * as THREE from 'three'
 import { useFrame, extend } from '@react-three/fiber'
 import { useRef, useState } from 'react'
@@ -38,8 +38,8 @@ export default function Experience()
     const {orbitCamera} = useControls('Camera',{
         orbitCamera: false
     })
-    const {position} = useControls('Sparkles',{
-        position: { value: [ 88, -41, 11 ], step: 1 },
+    const {position} = useControls('Html',{
+        position: { value: [ 0, 4, -3 ], step: 1 },
     })
 
     
@@ -81,8 +81,17 @@ export default function Experience()
     /**
      * PlaceHolder (hide Html element when camera goes far)
      */
+    
     const placeHolder = useRef()
     const [hidden, set] = useState()
+    
+    /**
+     * ShakeControl
+     */
+    
+        
+        
+    
 
     
     /**
@@ -94,9 +103,9 @@ export default function Experience()
     const [angle, setAngle] = useState(0)
     useFrame((state, delta) =>
     {   
-        setAngle((prevAngle) => prevAngle + delta * 0.2);
+        setAngle((prevAngle) => prevAngle + delta * 0.2)
 
-        portalMaterial.current.uTime += delta;
+        portalMaterial.current.uTime += delta
         rockMaterial.current.position.y = -(Math.cos(angle)) * 0.7
         rock1Material.current.position.y = Math.sin(angle) * 0.9
         rockMaterial.current.rotation.y = -(Math.cos(angle)) * 0.2
@@ -125,36 +134,78 @@ export default function Experience()
                 depth={1.5} // Z-dir depth
                 segments={10} // Number of particles
         />
-        
+    
 
         {/* Light */}
         <ambientLight intensity={1} />
 
         {/* <Center> */}
-            <Sphere ref={[placeHolder]} material scale={20}/>
+
+            {/* HTML */}
+            
+          
+            {/* <Sphere ref={placeHolder_1} scale={12} /> */}
+            
+            
+            
+            <mesh material ref={placeHolder} scale={20}>
+                <sphereGeometry />
+            </mesh>
+
+            <group>
+           
             <mesh geometry={ tower.nodes.tower.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
                 <Html
-                position={[0, 5, -3]}
-                wrapperClass='label'
-                center
-                
-                occlude={placeHolder}
-                onOcclude={set}
+                position={[2.1, 2, -2]} 
+                 wrapperClass="label"
+                 center
+                 distanceFactor={10}
+                 occlude={placeHolder}
+                 onOcclude={set}
                     style={{
                     transition: 'all 0.5s',
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
-                }}
-                >
-                    <h1>Yeahboy</h1>
+                }}>
+                    <h1>Coucou</h1>
                 </Html>
             </mesh>
+            <mesh geometry={ tower.nodes.terrain.geometry } >
+                <meshBasicMaterial map={ bakedTexture } />
+            </mesh>
+            <mesh ref={rockMaterial} geometry={ tower.nodes.rock.geometry } >
+                <meshBasicMaterial map={ bakedTexture } />
+            </mesh>
+            <mesh ref={rock1Material} position={[0, 3, 0]} geometry={ tower.nodes.rock1.geometry } >
+                <meshBasicMaterial map={ bakedTexture } />
+            </mesh>
+
+            <mesh geometry={ tower.nodes.porte.geometry } >
+                <portalMaterial ref={ portalMaterial } />
+            </mesh>
+            </group>
+
             
             
+            <group>
             <mesh geometry={dunk.nodes.perso.geometry} position={[46, -12.5, 9]} rotation={[0.4, -0.45, 0]}>
                 <meshBasicMaterial map={dunkTexture} />
+                <Html
+                position={[0, 0, 0]}
+                 wrapperClass="label"
+                 center
+                 /* occlude={dunkHide} */
+                 onOcclude={set}
+                    style={{
+                    transition: 'all 0.5s',
+                    opacity: hidden ? 0 : 1,
+                    transform: `scale(${hidden ? 0.5 : 1})`
+                }}>
+                    <h1>salut</h1>
+                </Html>
             </mesh>
+           
             <mesh geometry={dunk.nodes.filet_peche.geometry} position={[46, -12.5, 9]} rotation={[0.4, -0.45, 0]}>
                 <meshBasicMaterial map={dunkTexture} />
             </mesh>
@@ -167,12 +218,13 @@ export default function Experience()
                 color={'#FFE53B'}
                 noise={1}
             />
+          
+            </group>
 
-            <group position={position}>
-            <Sphere ref={placeHolder} material scale={8} />
+            <group position={[ 88, -41, 11 ]}>
             <mesh geometry={robotAll.nodes.body.geometry}>
                 <meshBasicMaterial map={bodytexture} />
-                <Html
+                {/* <Html
                 position={[0.5, 1, 0]}
                  wrapperClass="label"
                  center
@@ -185,7 +237,7 @@ export default function Experience()
                     transform: `scale(${hidden ? 0.5 : 1})`
                 }}>
                     <h1>Coucou</h1>
-                </Html>
+                </Html> */}
             </mesh>
             <mesh geometry={robotAll.nodes.metal.geometry}>
                 <meshBasicMaterial map={metalTexture} />
@@ -214,23 +266,28 @@ export default function Experience()
             </group>
             
 
-            <mesh geometry={ tower.nodes.terrain.geometry } >
-                <meshBasicMaterial map={ bakedTexture } />
-            </mesh>
-            <mesh ref={rockMaterial} geometry={ tower.nodes.rock.geometry } >
-                <meshBasicMaterial map={ bakedTexture } />
-            </mesh>
-            <mesh ref={rock1Material} position={[0, 3, 0]} geometry={ tower.nodes.rock1.geometry } >
-                <meshBasicMaterial map={ bakedTexture } />
-            </mesh>
-
-            <mesh geometry={ tower.nodes.porte.geometry } >
-                <portalMaterial ref={ portalMaterial } />
-            </mesh>
+            {/* <primitive object={placeHolder} scale={3} position={[0, 3, 0]}>
+                <meshBasicMaterial />
+            <Html
+                position={[0.1, 0, 0]} 
+                 wrapperClass="label"
+                 center
+                 distanceFactor={10}
+                 occlude={[placeHolder_1]}
+                 onOcclude={set}
+                    style={{
+                    transition: 'all 0.5s',
+                    opacity: hidden ? 0 : 1,
+                    transform: `scale(${hidden ? 0.5 : 1})`
+                }}>
+                    <h1>Coucou</h1>
+            </Html>
+            </primitive> */}
 
             
         {/* </Center> */}
 
     </>
+    
 }
 

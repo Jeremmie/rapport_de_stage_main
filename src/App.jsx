@@ -36,6 +36,8 @@ export default function App() {
 function Scene() {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
+
+  
   // our callback will run on every animation frame
   useFrame(() => {
     // the length of our sequence
@@ -50,6 +52,7 @@ function Scene() {
                 makeDefault
                 fov={60}
                 near={0.1}
+                
               />
   )
 }
