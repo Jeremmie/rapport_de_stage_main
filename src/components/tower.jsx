@@ -26,8 +26,8 @@ export default function Tower(){
     const isTabletOrMobile = useMediaQuery({query: '(max-width: 1224px)'})
 
 
-    const tower = useGLTF('../model/tower_v3.glb')
-    const bakedTexture = useTexture('../model/tower_material.jpg')
+    const tower = useGLTF('./model/tower_v3.glb')
+    const bakedTexture = useTexture('./model/tower_material.jpg')
     bakedTexture.flipY = false
 
     const placeHolder = useRef()
