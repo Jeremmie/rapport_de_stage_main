@@ -4,7 +4,10 @@
     box-sizing: border-box;
 }
 html,
-body,
+body {
+    scroll-behavior: smooth;
+}
+
 
 
 #root
@@ -63,4 +66,13 @@ body,
     vertical-align: middle;
     font-size: 10rem;
     
+}
+
+header{
+    position: fixed;
+    z-index: 10;
+}
+
+header > img{
+    height: 30px;
 }

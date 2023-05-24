@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import React from "react";
 import { useMediaQuery } from 'react-responsive'
-import { ScrollControls, useScroll } from "@react-three/drei";
+import { ScrollControls, useScroll, Loader } from "@react-three/drei";
 import Experience from "/Experience.jsx"
 import flyThroughState from "./fly.json"
 import { useControls } from 'leva'
@@ -23,6 +23,7 @@ export default function App() {
 
   const sheet = getProject("Fly Through", {state: flyThroughState}).sheet("Scene");
 
+  
   return (
     <>
     <Canvas gl={{ preserveDrawingBuffer: true }} flat>
@@ -33,6 +34,7 @@ export default function App() {
         </SheetProvider>
       </ScrollControls>
     </Canvas>
+    {/* <Loader /> */}
     </>
   )
 }

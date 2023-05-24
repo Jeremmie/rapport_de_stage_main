@@ -17,7 +17,7 @@ export default function Experience()
      * debug pannel
      */
     
-    const { sunPosition, turbidity, mieCoefficient } = useControls('sky', {
+    /* const { sunPosition, turbidity, mieCoefficient } = useControls('sky', {
         sunPosition: { value: [ 2.3, 0.6, -3.6 ], step: 0.1 },
         turbidity:{value: 0.1, step: 0.1},
         mieCoefficient: {value: 0.01, step: 0.1}
@@ -27,7 +27,7 @@ export default function Experience()
     })
     const {orbitCamera} = useControls('Camera',{
         orbitCamera: false
-    })
+    }) */
   
    
     return <>
