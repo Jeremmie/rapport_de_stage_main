@@ -51,13 +51,13 @@ export default function Tower(){
                  wrapperClass="label"
                  center
                  distanceFactor={10}
-                 occlude={placeHolder}
-                 onOcclude={set}
+                 occlude={[placeHolder]}
+                 /* onOcclude={set}
                     style={{
                     transition: 'all 0.5s',
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
-                }}>
+                }} */>
                     <h1>Coucou</h1>
                 </Html>
             </mesh>
@@ -75,8 +75,8 @@ export default function Tower(){
                 <portalMaterial ref={ portalMaterial } />
             </mesh>
             
-            <mesh material ref={placeHolder} scale={15} >
-                <sphereGeometry />
+            <mesh /* material */  scale={15} >
+                <sphereGeometry ref={placeHolder} />
             </mesh>
     </>
 }

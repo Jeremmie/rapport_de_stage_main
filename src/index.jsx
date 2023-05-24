@@ -5,6 +5,7 @@ import Experience from './Experience.jsx'
 import App from './App.jsx'
 
 
+
 /* Tuto theatre part */
 import studio from "@theatre/studio";
 import extension from "@theatre/r3f/dist/extension";
@@ -25,15 +26,18 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 root.render(
     <>
     
-    <Suspense fallback={null}>
+    
     
       <App>
       <Canvas>
+      <Suspense>
       <Experience />
+      </Suspense>
       </Canvas>
+
       </App>
+      
     
-    </Suspense>
 
     </>
 

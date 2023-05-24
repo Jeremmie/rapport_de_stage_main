@@ -44,14 +44,14 @@ export default function Experience()
         {/* Environnement */}
         <Sky sunPosition={sunPosition} turbidity={turbidity} mieCoefficient={mieCoefficient} />
         <Stars />
-        <Cloud
+        {/* <Cloud
                 position={[5, 0, 0]}
                 opacity={0.4}
                 speed={0.05} // Rotation speed
                 width={20} // Width of the full cloud
                 depth={1.5} // Z-dir depth
                 segments={10} // Number of particles
-        />
+        /> */}
     
 
         {/* Light */}
