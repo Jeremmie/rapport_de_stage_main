@@ -104,7 +104,7 @@ export default function Tower(){
         <portalMaterial ref={ portalMaterial } />
     </mesh>
     
-    <mesh /* material */  scale={15} >
+    <mesh material  scale={15} >
         <sphereGeometry ref={placeHolder} />
     </mesh>
     </>
