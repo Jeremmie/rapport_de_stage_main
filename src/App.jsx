@@ -1,4 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
+import React from "react";
+import { useMediaQuery } from 'react-responsive'
 import { ScrollControls, useScroll } from "@react-three/drei";
 import Experience from "/Experience.jsx"
 import flyThroughState from "./fly.json"
@@ -37,6 +39,8 @@ function Scene() {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
 
+  const isBigScreen = useMediaQuery({ query: '(max-width: 800px)' })
+
   
   // our callback will run on every animation frame
   useFrame(() => {
@@ -46,7 +50,7 @@ function Scene() {
     sheet.sequence.position = scroll.offset * sequenceLength;
   });
 
-  return (
+  return <>
     <PerspectiveCamera
                 theatreKey="Camera"
                 makeDefault
@@ -54,5 +58,15 @@ function Scene() {
                 near={0.1}
                 
               />
-  )
+    {isBigScreen && 
+      <PerspectiveCamera
+      theatreKey="Camera"
+      makeDefault
+      fov={120}
+      near={0.1}
+      
+    />
+    
+    }
+  </>
 }

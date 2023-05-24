@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import App from './App.jsx'
 
+
 /* Tuto theatre part */
 import studio from "@theatre/studio";
 import extension from "@theatre/r3f/dist/extension";
