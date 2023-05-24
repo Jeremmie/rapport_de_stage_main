@@ -34,15 +34,15 @@ export default function Experience()
         
         {/* Debugging */}
         
-        {performance && <Perf position='top-left' />}
+        {/* {performance && <Perf position='top-left' />} */}
         
         
         {/* Camera */}
-        { orbitCamera && <OrbitControls makeDefault /> }
+        {/* { orbitCamera && <OrbitControls makeDefault /> } */}
         
 
         {/* Environnement */}
-        <Sky sunPosition={sunPosition} turbidity={turbidity} mieCoefficient={mieCoefficient} />
+        <Sky sunPosition={[ 2.3, 0.6, -3.6 ]} turbidity={0.1} mieCoefficient={0.01} />
         <Stars />
         {/* <Cloud
                 position={[5, 0, 0]}

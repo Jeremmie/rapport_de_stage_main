@@ -64,15 +64,43 @@ body {
     text-align: center;
     height: fit-content;
     vertical-align: middle;
-    font-size: 10rem;
+    
     
 }
 
 header{
     position: fixed;
     z-index: 10;
+    width: 100vw;
+    padding: 5px 10px 5px 10px;
+    display: flex;
+    justify-content: end;
 }
 
-header > img{
-    height: 30px;
+header > svg{
+    height: 40px;
+    width: 40px;
+    opacity: 50%;
 }
+
+header > svg:hover{
+    height: 40px;
+    width: 40px;
+    opacity: 100%;
+    transition: 0.5s ease-in-out;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 3.052rem;
+}
+  
+h2 {font-size: 2.441rem;}
+
+h3 {font-size: 1.953rem;}
+
+h4 {font-size: 1.563rem;}
+
+h5 {font-size: 1.25rem;}
+
+small, .text_small {font-size: 0.8rem;}

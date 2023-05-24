@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive'
 import { ScrollControls, useScroll, Loader } from "@react-three/drei";
 import Experience from "/Experience.jsx"
 import flyThroughState from "./fly.json"
-import { useControls } from 'leva'
+/* import { useControls } from 'leva' */
 import { getProject, val } from "@theatre/core";
 import {
   SheetProvider,
@@ -17,9 +17,9 @@ export default function App() {
     /**
      * Debug pannel
      */
-    const {PerspectiveCamera} = useControls('Camera',{
+    /* const {PerspectiveCamera} = useControls('Camera',{
       PerspectiveCamera: true
-  })
+  }) */
 
   const sheet = getProject("Fly Through", {state: flyThroughState}).sheet("Scene");
 
