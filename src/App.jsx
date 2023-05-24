@@ -41,7 +41,8 @@ function Scene() {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
 
-  const isBigScreen = useMediaQuery({ query: '(max-width: 800px)' })
+  const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
+  const isTabletOrMobile = useMediaQuery({query: '(max-width: 1224px)'})
 
   
   // our callback will run on every animation frame
@@ -53,14 +54,17 @@ function Scene() {
   });
 
   return <>
-    <PerspectiveCamera
+    {isDesktopOrLaptop &&
+     <PerspectiveCamera
                 theatreKey="Camera"
                 makeDefault
                 fov={60}
                 near={0.1}
                 
               />
-    {isBigScreen && 
+    }
+   
+    {isTabletOrMobile && 
       <PerspectiveCamera
       theatreKey="Camera"
       makeDefault

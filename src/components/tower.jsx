@@ -4,6 +4,7 @@ import { useFrame, extend } from '@react-three/fiber'
 import { useRef, useState } from 'react'
 import portalVertexShader from '../shaders/portal/vertex.glsl'
 import portalFragmentShader from '../shaders/portal/fragment.glsl'
+import { useMediaQuery } from 'react-responsive'
 import { useControls } from 'leva'
 import { Perf } from 'r3f-perf'
 
@@ -20,6 +21,11 @@ const PortalMaterial = shaderMaterial(
 extend({ PortalMaterial })
 
 export default function Tower(){
+
+    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
+    const isTabletOrMobile = useMediaQuery({query: '(max-width: 1224px)'})
+
+
     const tower = useGLTF('../model/tower_v3.glb')
     const bakedTexture = useTexture('../model/tower_material.jpg')
     bakedTexture.flipY = false
@@ -46,37 +52,60 @@ export default function Tower(){
     
     <mesh geometry={ tower.nodes.tower.geometry } >
                 <meshBasicMaterial map={ bakedTexture } />
+                {isDesktopOrLaptop &&
                 <Html
                 position={[2.1, 2, -2]} 
                  wrapperClass="label"
                  center
                  distanceFactor={10}
                  occlude={[placeHolder]}
-                 /* onOcclude={set}
+                 onOcclude={set}
                     style={{
                     transition: 'all 0.5s',
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
-                }} */>
+                }}>
                     <h1>Coucou</h1>
                 </Html>
-            </mesh>
-            <mesh geometry={ tower.nodes.terrain.geometry } >
-                <meshBasicMaterial map={ bakedTexture } />
-            </mesh>
-            <mesh ref={rockMaterial} geometry={ tower.nodes.rock.geometry } >
-                <meshBasicMaterial map={ bakedTexture } />
-            </mesh>
-            <mesh ref={rock1Material} position={[0, 3, 0]} geometry={ tower.nodes.rock1.geometry } >
-                <meshBasicMaterial map={ bakedTexture } />
-            </mesh>
+                }
+                
+                {isTabletOrMobile && 
+                <Html
+                position={[2, 3, 2]} 
+                 wrapperClass="label"
+                 center
+                 distanceFactor={20}
+                 occlude={[placeHolder]}
+                 onOcclude={set}
+                    style={{
+                    transition: 'all 0.5s',
+                    opacity: hidden ? 0 : 1,
+                    transform: `scale(${hidden ? 0.5 : 1})`
+                }}>
+                    <h1>Digital Kingdom</h1>
+                    <p>ajshdkajhsdkajshd</p>
+                </Html>
+                }
+                
+    </mesh>
 
-            <mesh geometry={ tower.nodes.porte.geometry } >
-                <portalMaterial ref={ portalMaterial } />
-            </mesh>
-            
-            <mesh /* material */  scale={15} >
-                <sphereGeometry ref={placeHolder} />
-            </mesh>
+    
+
+    <mesh geometry={ tower.nodes.terrain.geometry } >
+        <meshBasicMaterial map={ bakedTexture } />
+    </mesh>
+    <mesh ref={rockMaterial} geometry={ tower.nodes.rock.geometry } >
+        <meshBasicMaterial map={ bakedTexture } />
+    </mesh>
+    <mesh ref={rock1Material} position={[0, 3, 0]} geometry={ tower.nodes.rock1.geometry } >
+        <meshBasicMaterial map={ bakedTexture } />
+    </mesh>
+    <mesh geometry={ tower.nodes.porte.geometry } >
+        <portalMaterial ref={ portalMaterial } />
+    </mesh>
+    
+    <mesh /* material */  scale={15} >
+        <sphereGeometry ref={placeHolder} />
+    </mesh>
     </>
 }
