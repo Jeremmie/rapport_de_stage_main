@@ -72,7 +72,7 @@ header{
     position: fixed;
     z-index: 10;
     width: 100vw;
-    padding: 5px 10px 5px 10px;
+    padding: 10px 10px 10px 10px;
     display: flex;
     justify-content: end;
 }
@@ -81,14 +81,16 @@ header > svg{
     height: 40px;
     width: 40px;
     opacity: 50%;
+    transition: 0.2s ease-in-out;
 }
 
 header > svg:hover{
     height: 40px;
     width: 40px;
     opacity: 100%;
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
+
 
 h1 {
     margin-top: 0;

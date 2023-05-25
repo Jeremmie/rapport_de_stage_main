@@ -10,7 +10,7 @@ import { Loader } from "@react-three/drei";
 import studio from "@theatre/studio";
 import extension from "@theatre/r3f/dist/extension";
 import React, { StrictMode, Suspense } from "react";
-import { ScrollControls, useScroll, Loader } from "@react-three/drei";
+
 import { getProject, val } from "@theatre/core";
 import {
   SheetProvider,
@@ -29,17 +29,8 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 root.render(
     <>
     
-    
-      <Loader />
-      <App>
-      <Canvas>
-      <Suspense fallback={null}>
-      <Experience />
-      </Suspense>
-      </Canvas>
-      </App>
-      {/* <Loader /> */}
-    
+      
+      <App />
 
     </>
 

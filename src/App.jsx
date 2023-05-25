@@ -26,6 +26,7 @@ export default function App() {
   
   return (
     <>
+    <Loader />
     <Canvas gl={{ preserveDrawingBuffer: true }} flat>
       <Experience></Experience>
       <ScrollControls pages={5}>
@@ -34,7 +35,7 @@ export default function App() {
         </SheetProvider>
       </ScrollControls>
     </Canvas>
-    {/* <Loader /> */}
+    
     </>
   )
 }
