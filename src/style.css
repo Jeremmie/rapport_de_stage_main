@@ -38,35 +38,87 @@ body {
 .one {
     height: 100vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
     scroll-snap-align: start;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    
     scroll-snap-type: y mandatory;
 }
+.grid_container{
+    padding: 50px 70px 0 70px;
+    
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
+    gap: 10px;
+}
+.grid_item{
+    
+    
+}
 
-.one > a{
-    background-color: black;
-    flex: 1;
+.grid_item1{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    
     display: flex;
-    justify-content: center;
-    align-items: end;
 }
-.one > span{
+.grid_item1 > h5{
     
-    height: 50vh;
-    
-    background-color: beige;
-}
-.one > span > h1, h5{
-    font-family: 'Parabole';
-    
-    background-color: red;
-    
+    text-align: center;
+    width: 100%;
     display: block;
     margin: auto 0 auto 0;
+}
+.grid_item2{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    display: flex;
+    
+}
+.grid_item2 > h1{
+    
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: auto 0 auto 0;
+    
+}
+.grid_item3{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 7;
+    grid-row-end: 8;
+    display: flex;
+    background: linear-gradient(white, white);
+    transition: 2s ease-in-out;
+    
+}
+
+.grid_item3 > a{
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: auto 0 auto 0;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.55);
+    scroll-behavior: smooth;
+}
+.grid_item3 > a > svg{
+    width: 60px;
+    height: 60px;
+    transition: 250ms ease-in-out;
+}
+.grid_item3 > a > svg:hover{
+    width: 75px;
+    height: 75px;
+    transition: 250ms ease-in-out;
 }
 
 /* PREMIERE PAGE */
@@ -186,3 +238,7 @@ h1 {
   h5 {font-size: 1.618rem;}
   
   small, .text_small {font-size: 0.618rem;}
+
+/* @media screen and (max-width='900px') {
+    
+} */
