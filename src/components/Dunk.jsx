@@ -13,7 +13,7 @@ import { Perf } from 'r3f-perf'
 
 export default function Dunk(){
     const dunk = useGLTF('./model/dunk.gltf')
-    const dunkTexture = useTexture('./model/dunk_base_color.png')
+    const dunkTexture = useTexture('./model/dunk_base_color.jpg')
     dunkTexture.flipY = false
 
     const placeHolder = useRef()

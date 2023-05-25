@@ -17,15 +17,15 @@ export default function Robot(){
     const placeHolder = useRef()
     const [hidden, set] = useState()
 
-    const bodytexture = useTexture('./model/robot/body.jpg')
-    const bouteilleTexture = useTexture('./model/robot/bouteille.png')
-    const feetTexture = useTexture('./model/robot/feet.png')
-    const metalMilieu = useTexture('./model/robot/metal_milieu.png')
-    const metalTexture = useTexture('./model/robot/metal.png')
-    const naturetexture = useTexture('./model/robot/nature.png')
-    const terrainTexture = useTexture('./model/robot/terrain.png')
-    const tuyauTexture = useTexture('./model/robot/tuyau.png')
-    const vitreTexture = useTexture('./model/robot/vitre.png')
+    const bodytexture = useTexture('./model/robot/body2.jpg')
+    const bouteilleTexture = useTexture('./model/robot/bouteille.jpg')
+    const feetTexture = useTexture('./model/robot/feet.jpg')
+    const metalMilieu = useTexture('./model/robot/metal_milieu.jpg')
+    const metalTexture = useTexture('./model/robot/metal.jpg')
+    const naturetexture = useTexture('./model/robot/nature.jpg')
+    const terrainTexture = useTexture('./model/robot/terrain.jpg')
+    const tuyauTexture = useTexture('./model/robot/tuyau.jpg')
+    const vitreTexture = useTexture('./model/robot/vitre.jpg')
     bodytexture.flipY = false
     bouteilleTexture.flipY = false
     feetTexture.flipY = false
