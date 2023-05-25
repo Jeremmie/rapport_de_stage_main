@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import App from './App.jsx'
-/* import { Loader } from "@react-three/drei"; */
+import { Loader } from "@react-three/drei";
 
 
 /* Tuto theatre part */
@@ -30,7 +30,7 @@ root.render(
     <>
     
     
-    
+      <Loader />
       <App>
       <Canvas>
       <Suspense fallback={null}>
