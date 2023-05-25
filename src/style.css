@@ -17,6 +17,7 @@ body {
 .container{
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    scroll-behavior: smooth;
     height: 100vh;
     width: 100vw;
 }
@@ -33,15 +34,50 @@ body {
     scroll-snap-type: y mandatory;
 }
 
+/* HEADER */
+.menu_header{
+    width: 65vw;
+    margin-right: 5vw;
+    /* background: linear-gradient(gray, white); */
+    display: flex;
+    padding: 0px 10px 0px 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu_header > a{
+    text-decoration: none;
+    color:rgba(0, 0, 0, 0.272);
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px rgb(107, 107, 107);
+    transition: all 250ms ease-in-out;
+}
+.menu_header > a:hover{
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgb(107, 107, 107);
+    transition: all 250ms ease-in-out;
+}
+
+@media screen and (max-width: 900px) {
+    .menu_header{
+        visibility: hidden;
+    }
+}
+/* HEADER */
+
+
 /* PREMIERE PAGE */
 
-.one {
+#one {
     height: 100vh;
     width: 100vw;
-    
+    color: #575EFF;
     scroll-snap-align: start;
-    /* background-color: #ffffff; */
-    
+    background-color: #FFF5EE;
     scroll-snap-type: y mandatory;
 }
 .grid_container{
@@ -54,21 +90,16 @@ body {
     grid-template-rows: auto auto auto auto auto auto auto;
     gap: 10px;
 }
-.grid_item{
-    
-    
-}
+
 
 .grid_item1{
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
-    
     display: flex;
 }
 .grid_item1 > h5{
-    
     text-align: center;
     width: 100%;
     display: block;
@@ -78,48 +109,74 @@ body {
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 3;
-    grid-row-end: 5;
+    grid-row-end: 4;
     display: flex;
-    
+    flex-direction: column;
 }
-.grid_item2 > h1{
-    
+.grid_item2 > h1, p{
     text-align: center;
     width: 100%;
     display: block;
     margin: auto 0 auto 0;
-    
 }
 .grid_item3{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: red;
+}
+.grid_item4{
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 7;
     grid-row-end: 8;
     display: flex;
-    background: linear-gradient(white, white);
     transition: 2s ease-in-out;
     
 }
 
-.grid_item3 > a{
+.grid_item4 > a{
     text-align: center;
+    width: 100%;
+    color: #575EFF;
+    background-color:#FFF5EE;
+    display: block;
+    margin: auto 0 auto 0;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    padding: 15px 15px 15px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 0px rgb(107, 107, 107);
+    transition: all 250ms ease-in-out;
+}
+.grid_item4 > a:hover{
+    text-align: center;
+    color: #FFF5EE;
+    background-color: #575EFF;
     width: 100%;
     display: block;
     margin: auto 0 auto 0;
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.55);
     scroll-behavior: smooth;
+    padding: 15px 15px 15px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px rgb(107, 107, 107);
+    transition: all 250ms ease-in-out;
 }
-.grid_item3 > a > svg{
-    width: 60px;
-    height: 60px;
-    transition: 250ms ease-in-out;
+@media screen and (max-width: 900px) {
+    .grid_container{
+        padding: 0 5px 0 5px;
+        height: 90vh;
+    }
+    .grid_item4 > a{
+        box-shadow: inset 0px 4px 4px rgb(107, 107, 107);
+    }
+    .grid_item4{
+        width: 40vw;
+    }
 }
-.grid_item3 > a > svg:hover{
-    width: 75px;
-    height: 75px;
-    transition: 250ms ease-in-out;
-}
+
 
 /* PREMIERE PAGE */
 
@@ -137,7 +194,7 @@ body {
 }
 
 .label > div > p {
-    font-size: 1rem;
+    text-align: start;
     background: #00000088;
     color: white;
     padding: 5px;
@@ -236,9 +293,31 @@ h1 {
   h4 {font-size: 2.618rem;}
   
   h5 {font-size: 1.618rem;}
+
+  p{font-size: 1rem;}
+  a{font-size: 1rem;}
   
   small, .text_small {font-size: 0.618rem;}
 
-/* @media screen and (max-width='900px') {
-    
-} */
+@media screen and (max-width:900px) {
+    h1 {
+        margin-top: 0;
+        font-size: 4.209rem;
+    }
+
+    h2 {font-size: 3.157rem;}
+
+    h3 {font-size: 2.369rem;}
+
+    h4 {font-size: 1.777rem;}
+
+    h5 {font-size: 1.333rem;}
+
+    p{
+        font-size: 1rem;
+    }
+
+    small, .text_small {font-size: 0.75rem;}
+
+    small, .text_small {font-size: 0.618rem;}
+}
