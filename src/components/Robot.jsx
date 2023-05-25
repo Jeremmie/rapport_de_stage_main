@@ -1,11 +1,5 @@
-import { shaderMaterial, Html, useAnimations, Sparkles, Environment, Sky, Stars, Center, useTexture, useGLTF, Cloud, OrbitControls, Sphere, Box, CameraShake } from '@react-three/drei'
-import * as THREE from 'three'
-import { useFrame, extend } from '@react-three/fiber'
+import { Html, useTexture, useGLTF } from '@react-three/drei'
 import { useRef, useState } from 'react'
-import portalVertexShader from '../shaders/portal/vertex.glsl'
-import portalFragmentShader from '../shaders/portal/fragment.glsl'
-import { useControls } from 'leva'
-import { Perf } from 'r3f-perf'
 
 
 
@@ -53,7 +47,8 @@ export default function Robot(){
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
                 }}>
-                    <h1>Coucou</h1>
+                    <p>Ce stage m’a permis d’apprendre de nouvelles techniques <br /> tout en consolidant celles déjà acquises ainsi que de découvrir <br /> les étapes de créations, l’environnement et l’organisation <br /> derrière un jeu vidéo. Tout en étant encadré par des passionnés.
+</p>
                 </Html>
             </mesh>
 
