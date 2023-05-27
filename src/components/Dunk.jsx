@@ -31,7 +31,8 @@ export default function Dunk(){
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
                 }}>
-                <p>Constamment à la recherche d’idées, la 3D me passionne, <br /> car elle me permet d’exprimer celles que j’ai attrapées.</p>
+                {/* <p>Constamment à la recherche d’idées, la 3D me passionne, <br /> car elle me permet d’exprimer concrétement celles que j’ai attrapées.</p> */}
+                <p>La 3D me passionne parce qu'elle me fournis les outils <br /> nécessaire pour exprimer les idées qui me passent à l'esprit.</p>
                
                 <div className='divTower'>
                 <a className='linkTower' href="https://jeremiejaouen.ch/" target='blank'>portfolio
