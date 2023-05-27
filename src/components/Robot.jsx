@@ -47,7 +47,7 @@ export default function Robot(){
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
                 }}>
-                    <p>Ce stage m’a permis d’apprendre de nouvelles techniques <br /> tout en consolidant celles déjà acquises ainsi que de découvrir <br /> les étapes de créations, l’environnement et l’organisation <br /> derrière un jeu vidéo. Tout en étant encadré par des passionnés.
+                    <p>Ce stage m’a permis d’apprendre de nouvelles techniques <br /> tout en consolidant celles déjà acquises ainsi que de découvrir <br /> les étapes de créations, l’environnement et l’organisation <br /> derrière un jeu vidéo. Tout en étant encadré par des <br /> professionels passionnés.
 </p>
                 </Html>
             </mesh>
