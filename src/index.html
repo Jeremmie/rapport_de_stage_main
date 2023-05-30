@@ -11,7 +11,7 @@
     <header id="header">
         <div class="menu_header">
             <a href="#one">acceuil</a>
-            <a href="#root">présentation</a>
+            <a id="myBtn0" href="#root">présentation</a>
             <a href="#two">travaux</a>
             <a href="">conclusion</a>
         </div>
@@ -31,14 +31,14 @@
         </div>
        
        <div class="grid_item4">
-        <a id="myBtn" href="#root">
+        <a id="myBtn0" href="#root">
             continuer
         </a>
        </div>
     </div>
     </div>
 
-    <div id="myModal" class="modal">
+    <div id="myModal0" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
@@ -60,60 +60,64 @@
             <div class="griditem2_two">
                 <p>J’ai eu l’opportunité de travailler sur plusieurs projets et par conséquent, utiliser plusieurs outils (photoshop, blender, illustrator, substance painter/designer, figma,...)</p>
             </div>
-            <div class="griditem3_two card img1">
-                <a class="card_link" href="./travaux/la3D/index.html">
+            <div id="myWorkBtn0" class="griditem3_two card img1">
+               
                 <div class="img la3D"></div>
                 <div class="card_two_div">
                 <h5 class="card_two_h5">3D</h5>
                 <p class="card_two_p">blender, substance painter/designer</p>
                 </div>
-                </a>
+
             </div>
             <div class="griditem4_two card img2">
-                <a class="card_link" href="">
                 <div class="img la2D"></div>
                 <div class="card_two_div">
                 <h5 class="card_two_h5">2D</h5>
                 <p class="card_two_p">Photoshop, Illustrator</p>
                 </div>
-            </a>
             </div>
             <div class="griditem5_two card img3">
-                <a class="card_link" href="">
                 <div class="img video"></div>
                 <div class="card_two_div">
                 <h5 class="card_two_h5">video</h5>
                 <p class="card_two_p">Premier Pro, After Effect, Audition</p>
                 </div>
-                </a>
             </div>
             <div class="griditem6_two card img4">
-                <a class="card_link" href="">
                 <div class="img unity"></div>
                 <div class="card_two_div">
                 <h5 class="card_two_h5">Unity</h5>
                 <p class="card_two_p">Unity</p>
                 </div>
-                </a>
-            </div>
+             </div>
             <div class="griditem7_two card img5">
-                <a class="card_link" href="">
                 <div class="img figma"></div>
                 <div class="card_two_div">
                 <h5 class="card_two_h5">Figma</h5>
                 <p class="card_two_p">Figma</p>
                 </div>
-                </a>
             </div>
             <div class="griditem8_two card img6">
-                <a class="card_link" href="">
                 <div class="img serif"></div>
                 <div class="card_two_div">
                 <h5 class="card_two_h5">Game Jam</h5>
                 <p class="card_two_p">évènement</p>
                 </div>
-                </a>
             </div>
+
+            <!-- MODAL CONTENT -->
+
+            <!-- 3D -->
+            <div id="myWorkModal0" class="workModal">
+
+                <div class="workModal-content">
+                    <span class="workClose">&times;</span>
+                    <h1>3D</h1>
+                    <p>Lorem ipsum, dolor sit amet <a class="workLink" href="https://www.wikipedia.org/" target="blank">consectetur</a> adipisicing elit. Minus ab optio, illo culpa saepe autem explicabo. Ea asperiores tempora commodi provident officiis ipsum, dicta consequatur quasi voluptatum, quod incidunt repudiandae.</p>
+                    <img src="https://i.ibb.co/DGxcX6w/10-4.png" alt="10-4" border="0">
+                </div>
+            </div>
+            <!-- 3D -->
 
         </div>
         </div>
@@ -121,5 +125,6 @@
     
     <script type="module" src="./index.jsx"></script>
     <script type="module" src="./script.js"></script>
+    <script type="module" src="./modal.js"></script>
 </body>
 </html>

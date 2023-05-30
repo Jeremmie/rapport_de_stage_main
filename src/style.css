@@ -1,7 +1,4 @@
-@font-face {
-    font-family: 'Parabole';
-    src: url(../medias/font/Parabole-DisplayRegular.otf);
-}
+
 * {
     margin: 0;
     padding: 0;
@@ -291,7 +288,8 @@ body {
 }
 .img{
     width: 100%;
-    height: 60%;
+    height: 100%;
+    text-decoration: none;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
@@ -318,17 +316,11 @@ body {
     color: rgb(58, 58, 58);
     font-style: italic;
 }
-.card_link{
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-}
-.card_link:hover{
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-}
+
+
 .card{
+    width: 100%;
+    height: 100%;
     box-shadow: 0px 4px 4px gray;
     transition: 250ms ease-in-out;
 }
@@ -336,6 +328,7 @@ body {
     box-shadow: 4px 4px 8px gray;
     scale: 102%;
     transition: 250ms ease-in-out;
+    cursor: pointer;
 }
 @media screen and (max-width: 900px) {
     .grid_container_two{
@@ -353,6 +346,8 @@ body {
         background-size: cover;
     }
     .img{
+        width: 100%;
+        height: 100%;
         visibility: hidden;
         overflow: hidden;
         height: 0;
@@ -541,6 +536,7 @@ h1 {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
   }
   
   /* Modal Content/Box */
@@ -553,7 +549,6 @@ h1 {
     max-width: 90vw;
     border-radius: 40px;
     box-shadow: inset 0px 4px 4px rgb(107, 107, 107);
-    
   }
   .modal-content > p{
     margin-top: 10px;
@@ -588,3 +583,58 @@ h1 {
     box-shadow: 0px 10px 10px rgb(107, 107, 107);
     transition: all 250ms ease-in-out;
   } 
+
+  /* MODAL TRAVAUX */
+  .workModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .workModal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 50px;
+    border: 1px solid #888;
+    width: 90vw; /* Could be more or less, depending on screen size */
+    border-radius: 40px;
+    box-shadow: 0px 4px 4px rgb(107, 107, 107);
+    height: fit-content;
+    color: black;
+  }
+  .workClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .workClose:hover,
+  .workClose:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .workModal-content > p{
+    width: 50%;
+    text-align: start;
+    white-space: none;
+  }
+  .workLink{
+    text-decoration: none;
+    font-style: italic;
+  }
+  .workLink:hover{
+    text-decoration: underline;
+    font-style: italic;
+  }
+  .workModal-content > img{
+    width: 60%;
+  }
+
+  /* MODAL TRAVAUX */
