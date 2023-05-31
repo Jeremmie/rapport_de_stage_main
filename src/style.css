@@ -599,7 +599,7 @@ h1 {
   }
   .workModal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 50px auto; /* 15% from the top and centered */
     padding: 50px;
     border: 1px solid #888;
     width: 90vw; /* Could be more or less, depending on screen size */
@@ -633,8 +633,27 @@ h1 {
     text-decoration: underline;
     font-style: italic;
   }
-  .workModal-content > img{
+
+  .workModal-content > iframe, img{
     width: 60%;
+    margin: 20px 0 20px 0;
+    border-radius: 20px;
+    aspect-ratio: 16/9;
+    box-shadow: 0px 4px 10px gray;
+  }
+  @media screen and (max-width:900px){
+    .workModal-content > iframe, img{
+        width: 95%;
+        margin: 20px 0 20px 0;
+        border-radius: 20px;
+        aspect-ratio: 16/9;
+        box-shadow: 0px 4px 10px gray;
+      }
+  }
+  .workModal-content > p{
+    width: 95%;
+    text-align: start;
+    white-space: none;
   }
 
   /* MODAL TRAVAUX */

@@ -1,6 +1,6 @@
-var workworkModal = document.getElementsByClassName("workModal");
+var workModal = document.getElementsByClassName("workModal");
 
-for (let index = 0; index < workworkModal.length; index++) {
+for (let index = 0; index < workModal.length; index++) {
   var workBtn = document.getElementById("myWorkBtn"+index);
   let workModal = document.getElementById("myWorkModal"+index)
   var workSpan = document.getElementsByClassName("workClose")[index];
@@ -21,9 +21,9 @@ for (let index = 0; index < workworkModal.length; index++) {
   // When the user clicks anywhere outside of the workModal, close it
   window.onclick = function (event) {
     for (let index = 0; index < workModal.length; index++) {
-      var workModal = document.getElementById("myWorkModal"+index)
-      if (event.target == workModal) {
-        workModal.style.display = "none";
+      var workModals = document.getElementById("myWorkModal"+index)
+      if (event.target == workModals) {
+        workModals.style.display = "none";
       }
     }
   }
