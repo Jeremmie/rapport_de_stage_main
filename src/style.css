@@ -456,6 +456,13 @@ body {
     font-weight: bold;
 }
 
+@media screen and (max-width: 900px){
+    .label > div > p{
+        font-size: large;
+        background: #000000a8;
+    }
+}
+
 
 header{
     position: fixed;
@@ -648,7 +655,7 @@ h1 {
   }
   .simple_section{
     display: flex;
-    
+
   }
   @media screen and (max-width:900px){
     .workModal-content > iframe, img{
