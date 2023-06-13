@@ -64,7 +64,7 @@ export default function Tower(){
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
                 }}>
-                    <p><a href="https://digitalkingdom.ch/" target='blank'>Digital Kingdom</a> est un studio <br /> de développement de jeux vidéo <br /> indépendants basé à vevey.</p>
+                    <p><a href="https://digitalkingdom.ch/" target='blank'>Digital Kingdom</a> est un studio <br /> de développement de jeux vidéo <br /> indépendant basé à Vevey (Suisse).</p>
                     <p>Spécialisé dans le serious game, <br /> ils apportent une dimension <br /> pédagogique et émotionnelle <br /> aux projets de leurs clients.</p>
                     <p>En parallèle, ils dédient aussi une <br /> partie de leur travail au développement <br /> de leurs propres jeux vidéo comme, <br /> par exemple, leur dernier jeu : Swordship</p>
                     <div className='divTower'>
@@ -102,7 +102,7 @@ export default function Tower(){
                     opacity: hidden ? 0 : 1,
                     transform: `scale(${hidden ? 0.5 : 1})`
                 }}>
-                    <p><a href="https://digitalkingdom.ch/" target='blank'>Digital Kingdom</a> est un studio <br /> de développement de jeux vidéo <br /> indépendants basé à vevey.</p>
+                    <p><a href="https://digitalkingdom.ch/" target='blank'>Digital Kingdom</a> est un studio <br /> de développement de jeux vidéo <br /> indépendant basé à Vevey (Suisse).</p>
                     <p>Spécialisé dans le serious game, <br /> ils apportent une dimension <br /> pédagogique et émotionnelle <br /> aux projets de leurs clients.</p>
                     <p>En parallèle, ils dédient aussi une <br /> partie de leur travail au développement <br /> de leurs propres jeux vidéo comme, <br /> par exemple, leur dernier jeu : Swordship</p>
                     <div className='divTower'>

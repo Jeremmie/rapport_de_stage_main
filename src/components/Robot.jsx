@@ -1,11 +1,15 @@
 import { Html, useTexture, useGLTF } from '@react-three/drei'
 import { useRef, useState } from 'react'
-
+import { useMediaQuery } from 'react-responsive'
 
 
 
 
 export default function Robot(){
+
+    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})
+    const isTabletOrMobile = useMediaQuery({query: '(max-width: 1224px)'})
+
     const robotAll = useGLTF('./model/robot_all.glb')
 
     const placeHolder = useRef()
@@ -35,6 +39,7 @@ export default function Robot(){
             <group position={[ 88, -41, 11 ]}>
             <mesh geometry={robotAll.nodes.body.geometry}>
                 <meshBasicMaterial map={bodytexture} />
+                {isDesktopOrLaptop &&
                 <Html
                 position={[0.5, 1, 0]}
                  wrapperClass="label"
@@ -50,6 +55,25 @@ export default function Robot(){
                     <p>Ce stage m’a permis d’apprendre de nouvelles techniques <br /> tout en consolidant celles déjà acquises ainsi que de découvrir <br /> les étapes de créations, l’environnement et l’organisation <br /> derrière un jeu vidéo. Tout en étant encadré par des <br /> professionels passionnés.
 </p>
                 </Html>
+                }
+
+                {isTabletOrMobile &&
+                <Html
+                position={[-1, 1, 1.5]}
+                 wrapperClass="label"
+                 center
+                 distanceFactor={ 3 }
+                 occlude={[placeHolder]}
+                 onOcclude={set}
+                    style={{
+                    transition: 'all 0.5s',
+                    opacity: hidden ? 0 : 1,
+                    transform: `scale(${hidden ? 0.5 : 1})`
+                }}>
+                    <p>Ce stage m’a permis d’apprendre de nouvelles <br /> techniques tout en consolidant celles déjà acquises <br /> ainsi que de découvrir les étapes de créations, <br /> l’environnement et l’organisation derrière un <br /> jeu vidéo. Tout en étant encadré par des <br /> professionels passionnés.
+</p>
+                </Html>
+                }
             </mesh>
 
             <mesh material position={[-1, 0, 3]} ref={placeHolder} scale={5}>
