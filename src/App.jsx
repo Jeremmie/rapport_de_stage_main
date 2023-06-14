@@ -72,8 +72,7 @@ export default function App() {
     <Loader />
     <Canvas gl={{ preserveDrawingBuffer: true }} flat>
       
-{/*     <OrbitControls />
- */}    <Sky sunPosition={[ 2.3, 0.6, -3.6 ]} turbidity={0.1} mieCoefficient={0.01} />
+    <Sky sunPosition={[ 2.3, 0.6, -3.6 ]} turbidity={0.1} mieCoefficient={0.01} />
         <Stars />
         <Cloud
                 position={[20, 0, 0]}
