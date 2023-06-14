@@ -783,8 +783,13 @@ h1 {
         width: auto;
     }
     .section_in_modal > p{
-        width: 100%;
+        width: 103%;
     }
+    .section_in_modal {
+        padding: 0px;
+        border-radius: 25px;
+        margin-bottom: 50px;
+      }
     .skill_container {
         width: fit-content;
         height: 100%;
