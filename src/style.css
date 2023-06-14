@@ -74,7 +74,7 @@ body {
 #one {
     height: 100vh;
     width: 100vw;
-    color: #575EFF;
+    color: black;
     scroll-snap-align: start;
     background-color: white;
     scroll-snap-type: y mandatory;
@@ -82,7 +82,7 @@ body {
 #three {
     height: 100vh;
     width: 100vw;
-    color: #575EFF;
+    color: black;
     scroll-snap-align: start;
     background-color: white;
     scroll-snap-type: y mandatory;
@@ -146,7 +146,7 @@ body {
 .grid_item4 > a{
     text-align: center;
     width: 100%;
-    color: #575EFF;
+    color: black;
     background-color:#FFF5EE;
     display: block;
     margin: auto 0 auto 0;
@@ -156,12 +156,12 @@ body {
     border-radius: 25px;
     box-shadow: 0px 0px 0px rgb(107, 107, 107);
     transition: all 250ms ease-in-out;
-    border: solid 2px #575EFF;
+    border: solid 2px black;
 }
 .grid_item4 > a:hover{
     text-align: center;
     color: #FFF5EE;
-    background-color: #575EFF;
+    background-color: black;
     width: 100%;
     display: block;
     margin: auto 0 auto 0;
@@ -190,7 +190,7 @@ body {
 #two {
     height: 100vh;
     width: 100vw;
-    color: #575EFF;
+    color: black;
     scroll-snap-align: start;
     background-color: white;
     scroll-snap-type: y mandatory;
@@ -587,9 +587,9 @@ h1 {
     width: fit-content;
     padding: 5px 20px 5px 20px;
     font-size: 1.5rem;
-    border: 2px solid #575EFF;
+    border: 2px solid black;
     border-radius: 50px;
-    color: #575EFF;
+    color: black;
     box-shadow: 0px 0px 0px rgb(107, 107, 107);
     transition: all 250ms ease-in-out;
   }
@@ -597,7 +597,7 @@ h1 {
   .close > p:hover,
   .close:focus {
     color: white;
-    background-color: #575EFF;
+    background-color: black;
     text-decoration: none;
     cursor: pointer;
     box-shadow: 0px 10px 10px rgb(107, 107, 107);
@@ -736,7 +736,7 @@ h1 {
     background-color: rgb(95, 95, 95);
     color: white;
     padding: 5px 10px 5px 10px;
-    border-radius: 30px;
+    border-radius: 5px;
   }
   
   .logiciels:hover{
@@ -838,7 +838,7 @@ h1 {
     width: auto;
     text-align: start;
     font: 1.2rem;
-    color: #575EFF;
+    color: black;
 }
 .profil{
     display: flex;
@@ -877,7 +877,7 @@ h1 {
     padding: 20px;
     background-color: #0000001c;
     border-radius: 10px;
-    color: #575EFF;
+    color: black;
     margin: 10px 0 0 0;
 }
 
@@ -925,7 +925,7 @@ h1 {
     #one {
         height: 100vh;
         width: 100vw;
-        color: #575EFF;
+        color: black;
         background-color: white;
         scroll-snap-align: none;
         scroll-snap-type: none;
@@ -933,7 +933,7 @@ h1 {
     #two {
         height: 120%;
         width: 100vw;
-        color: #575EFF;
+        color: black;
         background-color: white;
         scroll-snap-align: none;
         scroll-snap-type: none;
@@ -941,7 +941,7 @@ h1 {
     #three {
         height: 140%;
         width: 100vw;
-        color: #575EFF;
+        color: black;
         background-color: white;
         scroll-snap-align: none;
         scroll-snap-type: none;
