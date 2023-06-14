@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import React from "react";
 import { useMediaQuery } from 'react-responsive'
-import { ScrollControls, useScroll, Loader, Sky, Stars } from "@react-three/drei";
+import { ScrollControls, useScroll, Loader, Sky, Stars, Cloud, OrbitControls } from "@react-three/drei";
 
 import flyThroughState from "./fly.json"
 /* import { useControls } from 'leva' */
@@ -72,18 +72,35 @@ export default function App() {
     <Loader />
     <Canvas gl={{ preserveDrawingBuffer: true }} flat>
       
-
-    <Sky sunPosition={[ 2.3, 0.6, -3.6 ]} turbidity={0.1} mieCoefficient={0.01} />
+{/*     <OrbitControls />
+ */}    <Sky sunPosition={[ 2.3, 0.6, -3.6 ]} turbidity={0.1} mieCoefficient={0.01} />
         <Stars />
-        {/* <Cloud
-                position={[5, 0, 0]}
+        <Cloud
+                position={[20, 0, 0]}
                 opacity={0.4}
                 speed={0.05} // Rotation speed
                 width={20} // Width of the full cloud
                 depth={1.5} // Z-dir depth
                 segments={10} // Number of particles
-        /> */}
-    
+        />
+        <Cloud
+                position={[-20, 0, 0]}
+                opacity={0.4}
+                speed={0.05} // Rotation speed
+                width={20} // Width of the full cloud
+                depth={1.5} // Z-dir depth
+                segments={10} // Number of particles
+        />
+
+<Cloud
+                position={[100, -40, 10]}
+                opacity={0.4}
+                speed={0.05} // Rotation speed
+                width={20} // Width of the full cloud
+                depth={1.5} // Z-dir depth
+                segments={10} // Number of particles
+        />
+      
 
         {/* Light */}
     <ambientLight intensity={1} />
